@@ -1,4 +1,4 @@
-![Portfolio personal]
+Portfolio personal
 
 ## 🛠️ Estructura del proyecto
 
@@ -47,7 +47,3 @@ Descubre las principales integraciones de Astro utilizadas en este proyecto:
 - [astro-tunnel](https://www.npmjs.com/package/astro-tunnel): Permite exponer localmente tu proyecto de Astro a través de una URL pública.
 
 - [sanitize.css](https://www.npmjs.com/package/sanitize.css): Es una hoja de estilos que ofrece un reinicio (reset) y una normalización de los estilos CSS por defecto en los navegadores. Garantiza una apariencia más consistente entre distintos navegadores, eliminando las diferencias en estilos por defecto, lo que permite un desarrollo más predecible y coherente de la UI.
-
----
-
-Diseñado con ❤️ por [Ana Rangel](https://www.linkedin.com/in/ux-ana-rangel) y desarrollado con 💙 por [Felix Icaza](https://felixicaza.com).
