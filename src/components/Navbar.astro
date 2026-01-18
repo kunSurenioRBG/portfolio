@@ -1,9 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components'
-import { switchLocalePath, t } from 'i18n:astro'
+import { t } from 'i18n:astro'
 import ToggleSwitch from '@components/ToggleSwitch.astro'
 
 const links = t('navbar', { returnObjects: true })
+const currentLocale = Astro.currentLocale || 'es'
+const base = import.meta.env.BASE_URL
+const isEnglish = currentLocale === 'en'
+const switchLocaleUrl = isEnglish ? `${base}/` : `${base}/en/`
 ---
 
 <nav id="menu">
@@ -18,17 +22,12 @@ const links = t('navbar', { returnObjects: true })
       ))
     }
     <li>
-      <a
-        class="language"
-        href={Astro.url.pathname.includes('/en')
-          ? switchLocalePath('es')
-          : switchLocalePath('en')}
-      >
+      <a class="language" href={switchLocaleUrl}>
         <span>
           <Icon name="language" size={18} />
         </span>
         <span>
-          {Astro.url.pathname.includes('/en') ? 'Español' : 'English'}
+          {isEnglish ? 'Español' : 'English'}
         </span>
       </a>
     </li>
@@ -44,17 +43,12 @@ const links = t('navbar', { returnObjects: true })
 <dialog>
   <nav>
     {links.map(({ label, href }) => <a href={href}>{label}</a>)}
-    <a
-      class="language"
-      href={Astro.url.pathname.includes('/en')
-        ? switchLocalePath('es')
-        : switchLocalePath('en')}
-    >
+    <a class="language" href={switchLocaleUrl}>
       <span>
         <Icon name="language" size={18} />
       </span>
       <span>
-        {Astro.url.pathname.includes('/en') ? 'Español' : 'English'}
+        {isEnglish ? 'Español' : 'English'}
       </span>
     </a>
     <div>
