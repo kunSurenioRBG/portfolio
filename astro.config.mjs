@@ -1,21 +1,22 @@
 import { defineConfig } from 'astro/config'
-import { URL } from './src/data/constants' // Puedes mantenerlo si lo usas en otros sitios, pero abajo usaremos la URL directa para asegurar.
 
 import tunnel from 'astro-tunnel'
 import icon from 'astro-icon'
-// import { astroImageTools } from 'astro-imagetools'
 import i18n from '@astrolicious/i18n'
 import sitemap from 'astro-sitemap'
-import playformCompress from '@playform/compress'
-import compressor from 'astro-compressor'
+// import playformCompress from '@playform/compress'  <-- COMENTADO
+// import compressor from 'astro-compressor'          <-- COMENTADO
 
 // https://astro.build/config
 export default defineConfig({
-  // 1. CAMBIO IMPORTANTE: La URL base de tu usuario
+  // 1. URL base exacta de tu repositorio
   site: 'https://kunsureniorbg.github.io',
-  
-  // 2. CAMBIO IMPORTANTE: El nombre de tu repositorio (esto arregla el CSS)
   base: '/porfolio',
+
+  // 2. ESTA ES LA CLAVE: Renombramos la carpeta interna para evitar el guion bajo
+  build: {
+    assets: 'assets'
+  },
 
   server: {
     host: true
@@ -28,13 +29,11 @@ export default defineConfig({
   integrations: [
     tunnel(),
     icon(),
-    // astroImageTools,
     i18n({
       defaultLocale: 'es',
       locales: ['es', 'en']
     }),
     sitemap({
-      // Aseguramos que el sitemap use la URL correcta concatenada
       canonicalURL: 'https://kunsureniorbg.github.io/porfolio',
       lastmod: new Date(),
       createLinkInHead: false,
@@ -50,38 +49,13 @@ export default defineConfig({
           es: 'es'
         }
       },
-      // Remove trailing slash
       serialize(item) {
         /* eslint-disable-next-line no-param-reassign */
         item.url = item.url.replace(/\/$/g, '')
         return item
       }
     }),
-    playformCompress({
-      HTML: {
-        collapseBooleanAttributes: true,
-        maxLineLength: 0,
-        removeAttributeQuotes: false,
-        removeComments: true,
-        removeEmptyAttributes: true,
-        removeOptionalTags: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true
-      },
-      JavaScript: {
-        compress: {
-          ecma: 2015
-        },
-        format: {
-          comments: false,
-          ecma: 2015
-        },
-        ecma: 2015,
-        module: true
-      },
-      Image: false,
-      SVG: false
-    }),
-    compressor()
+    // playformCompress({ ... }), <--- Desactivado temporalmente
+    // compressor()               <--- Desactivado temporalmente
   ]
 })
