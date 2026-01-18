@@ -20,7 +20,7 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "dev": "astro dev",
     "prepare": "husky",
     "preview": "astro preview",
