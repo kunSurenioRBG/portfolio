@@ -12,7 +12,8 @@ html {
 
   .tailwindcss,
   .typescript,
-  .react {
+  .react,
+  .react-native {
     background-color: #32547f;
     transition: var(--transition-bg);
   }
@@ -52,6 +53,67 @@ html {
     color: #000;
     transition: var(--transition-bg), var(--transition-text);
   }
+
+  .python {
+    background-color: #21649b;
+    transition: var(--transition-bg);
+  }
+
+  .pytorch {
+    background-color: #eb9584;
+    transition: var(--transition-bg);
+  }
+
+  .expo {
+    background-color: #5d8ac5;
+    transition: var(--transition-bg);
+  }
+
+  .n8n {
+    background-color: #81493b;
+    transition: var(--transition-bg);
+  }
+
+  .ocr {
+    background-color: #335f8b;
+    transition: var(--transition-bg);
+  }
+
+  .llm {
+    background-color: #308872;
+    transition: var(--transition-bg);
+  }
+
+  .docker {
+    background-color: #2496ed;
+    transition: var(--transition-bg);
+  }
+
+  .wsl {
+    background-color: #3a87c2;
+    transition: var(--transition-bg);
+  }
+
+  .unreal-engine,
+  .gaussian-splatting {
+    background-color: #313131;
+    transition: var(--transition-bg);
+  }
+
+  .terminal {
+    background-color: #416181;
+    transition: var(--transition-bg);
+  }
+
+  .opencv {
+    background-color: #86be63;
+    transition: var(--transition-bg);
+  }
+
+  .yolo {
+    background-color: #5582e2;
+    transition: var(--transition-bg);
+  }
 }
 
 html.dark {
@@ -66,7 +128,8 @@ html.dark {
 
   .tailwindcss,
   .typescript,
-  .react {
+  .react,
+  .react-native {
     background-color: #bddaff;
   }
 
@@ -92,5 +155,55 @@ html.dark {
 
   .firebase {
     background-color: #ffdd88;
+  }
+
+  .python {
+    background-color: #4a90e2;
+  }
+
+  .pytorch {
+    background-color: #ff6b4a;
+  }
+
+  .expo {
+    background-color: #333333;
+  }
+
+  .n8n {
+    background-color: #4a90e2;
+  }
+
+  .ocr {
+    background-color: #4a90e2;
+  }
+
+  .llm {
+    background-color: #2ecc71;
+  }
+
+  .docker {
+    background-color: #4a90e2;
+  }
+
+  .wsl {
+    background-color: #4a90e2;
+  }
+
+  .unreal-engine,
+  .gaussian-splatting {
+    background-color: #666666;
+  }
+
+  .terminal {
+    background-color: #34495e;
+  }
+
+  .opencv {
+    background-color: #7cb342;
+  }
+
+  .yolo,
+  .ultralytics {
+    background-color: #a855f7;
   }
 }

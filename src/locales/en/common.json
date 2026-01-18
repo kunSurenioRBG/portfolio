@@ -1,6 +1,6 @@
 {
-  "title": "AI ML & Computer Vision Engineer - Santiago Ponce Arrocha",
-  "description": "Web Frontend Developer from Esteli, Nicaragua. Specialist in HTML5, CSS5, JavaScript ES6+, Node.js and WordPress.",
+  "title": "Artificial Intelligence: ML & Computer Vision Engineer - Santiago Ponce Arrocha",
+  "description": "ML & Computer Vision Specialist | Automation & Generative AI & Natural Language",
   "navbar": [
     {
       "label": "Home",
@@ -21,27 +21,78 @@
   ],
   "hero": {
     "job_availability": "Available for work!",
-    "title": "Hello I'm Felix Rangel!",
-    "job_title": "<strong>Web Frontend Developer</strong> from Esteli, Nicaragua.",
-    "description": "Specialist in HTML5, CSS5, JavaScript ES6+, Node.js and WordPress.",
+    "title": "Hello I'm Santiago!",
+    "job_title": "<strong>Artificial Intelligence Engineer - Santiago Ponce Arrocha</strong> - Málaga, Spain.",
+    "description": "ML & Computer Vision Specialist | Automation & Generative AI & Natural Language",
     "cta": "Contact me"
   },
   "experience": {
     "title": "Work Experience",
     "jobs": {
-      "jobs_title": ["Freelance", "HD Media Nicaragua"],
+      "jobs_title": ["Freelance", "inOne Golf", "Research"],
       "jobs_description": [
         {
-          "title": "Web Frontend Developer",
-          "time": ["Dec 2021"],
-          "description": "I create modern websites with good UI/UX practices. I also manage SEO, security and performance optimizations to increase conversion and visits.",
-          "list": ["Design of websites", "Optimization of websites"]
+          "title": "Freelance Developer",
+          "time": ["March 2023"],
+          "description": [
+            "Do you have an idea or a technical challenge?",
+            "As a freelance developer, I specialize in transforming complex problems into efficient technological solutions. I combine custom software development with the power of Artificial Intelligence and automated workflow orchestration.",
+            "I am completely open to private projects and custom collaborations. If you have a specific business need or an idea you want to validate, write to me without any commitment. I'll be happy to hear your concerns and propose a viable technical solution before you decide anything.",
+            "I have experience developing automated management tools for real estate companies. A recent example is the development of Veronda: Veronda is an AI-powered solution designed to automate comprehensive invoice, receipt, and contract management."
+          ],
+          "techs": [
+            "React Native",
+            "Expo",
+            "n8n",
+            "Artificial Intelligence",
+            "Workflow Automation",
+            "Node.js",
+            "JavaScript",
+            "TypeScript",
+            "OCR",
+            "Backend Integrations",
+            "PropTech"
+          ]
         },
         {
-          "title": "WordPress Web Developer",
-          "time": ["Nov 2020", "Oct 2021"],
-          "description": "I was in charge of developing WordPress websites for clients in Nicaragua, during my time at the agency I contributed my knowledge in web security by increasing measures and decreasing security gaps in WordPress, configuring plugins and setting HTTP headers such as Content-Security-Policy (CSP), Cross-Origin-Resource-Policy (CORP), Cross-Origin-Opener-Policy (COOP), etc.",
-          "list": ["Design of websites", "Optimization of websites"]
+          "title": "Data Scientist - Computer Vision",
+          "time": ["January 2026"],
+          "description": [
+            "Design and implementation in a CRM of an automated workflow using n8n to orchestrate an intelligent product and service chatbot, operating on multiple communication channels such as WhatsApp and other messaging platforms.",
+            "Participation in the development of a software platform for the real estate and construction sector, aimed at automating technical and urban validation of residential blueprints through computer vision and artificial intelligence models."
+          ],
+          "techs": [
+            "Python",
+            "OpenCV",
+            "TensorFlow",
+            "PyTorch",
+            "n8n",
+            "LangChain",
+            "Data Science",
+            "Natural Language Processing (NLP)",
+            "Workflow Automation (n8n)",
+            "Amazon Web Services (AWS)",
+            "LLM Integration",
+            "AI-Driven Software Platforms",
+            "Computer Vision Data Pipelines",
+            "Object Detection & Semantic Segmentation",
+            "Computer Vision",
+            "AI System Architecture"
+          ]
+        },
+        {
+          "title": "Researcher at University of Málaga - SCBI Picasso",
+          "time": ["Nov 2024", "July 2025"],
+          "description": "Work carried out at SCBI Picasso, the supercomputing center of the University of Málaga. Design and implementation from scratch of a complete system for neural rendering and synthesis of new views of 3D scenes. Focus on learning 3D scenes from images using optimizable volumetric radiance field models (such as Gaussian Splatting), with the goal of generating new perspectives from arbitrary viewpoints.",
+          "techs": [
+            "Python",
+            "PyTorch",
+            "Visual Studio Code",
+            "Docker",
+            "YOLO",
+            "Adobe Creative Suite",
+            "WSL HPC (Picasso)"
+          ]
         }
       ]
     }
@@ -50,35 +101,58 @@
     "title": "Projects",
     "projects": [
       {
-        "title": "Estelí Buses",
-        "description": "The first platform to know the bus schedules of interlocal buses in the Estelí municipality, Nicaragua.",
-        "image": "/src/images/projects/esteli-buses-project.jpg",
-        "techs": ["Astro", "TailwindCSS", "Firebase", "PWA"],
-        "code": "Code",
-        "preview": "Preview"
-      },
-      {
-        "title": "Portafolio UX Ana Rangel",
-        "description": "Lorem ipsum dolor sit amet consectetur. Faucibus quis sociis at sagittis egestas sed volutpat. Arcu pellentesque elit volutpat quam. Id dictum sagittis hendrerit diam viverra velit. Blandit id viverra quis lectus faucibus egestas ipsum turpis.",
-        "image": "/src/images/projects/ana-rangel-portafolio.jpg",
-        "techs": ["Astro", "CSS", "SASS", "Open Props", "TypeScript"],
-        "code": "Code",
-        "preview": "Preview"
-      },
-      {
-        "title": "Calculadora Payoneer Nicaragua",
-        "description": "Discover an essential tool for freelancers and businesses in Nicaragua. Our Calculadora Payoneer Nicaragua allows you to calculate precisely and quickly the rates and commissions when receiving international payments through Payoneer. Start using it today and take control of your finances!",
-        "image": "/src/images/projects/calculadora-payoneer-project.jpg",
+        "title": "Veronda: Invoice, Receipt and Contract Management",
+        "description": "AI-powered solution designed to automate comprehensive invoice, receipt, and contract management using LLM and OCR models. Integrated with Google database and services for control and management of all documents.",
+        "image": "/src/images/projects/logo_cerezo.png",
         "techs": [
-          "Astro",
-          "TailwindCSS",
-          "React",
+          "n8n",
+          "JavaScript",
           "TypeScript",
-          "PWA",
-          "Firebase"
+          "OCR",
+          "LLM",
+          "React",
+          "Expo"
         ],
-        "code": "Code",
-        "preview": "Preview"
+        "linkedin": "More details on LinkedIn",
+        "linkedin_url": "https://www.linkedin.com/in/kunsurenio/"
+      },
+      {
+        "title": "Neural Representation and Dynamic Segmentation for Novel View Generation in 3D Scenes",
+        "description": "Designed and implemented a complete system from scratch for neural rendering and innovative view synthesis of 3D scenes. This work focuses on learning 3D scenes from images using optimizable volumetric radiance field models (such as Gaussian Splatting), with the goal of generating new scene perspectives from arbitrary viewpoints.",
+        "image": "/public/media/TAA_MSAA_comparativa.gif",
+        "techs": [
+          "Python",
+          "PyTorch",
+          "Gaussian Splatting",
+          "Docker",
+          "WSL",
+          "YOLO"
+        ],
+        "code": "https://github.com/kunSurenioRBG/NeuroView"
+      },
+      {
+        "title": "Antialiasing Techniques for Real-Time Games and 3D Scenes Using Deep Neural Networks",
+        "description": "The main objective of this project is to research, analyze and develop antialiasing techniques based on deep neural networks for application in video games. Multiple models have been developed using different architectures, such as CNN, UNet and Transformer.",
+        "image": "/public/media/class_id_scene_bicycle.gif",
+        "techs": [
+          "Python",
+          "OpenCV",
+          "PyTorch",
+          "Unreal Engine",
+          "Terminal",
+          "Docker"
+        ],
+        "code": "https://github.com/kunSurenioRBG/RenderFlowAA"
+      },
+      {
+        "title": "Personal Portfolio - Modern Design",
+        "description": [
+          "Personal portfolio developed with Astro, showcasing AI and ML projects with modern design, performance optimization and multi-language support. ",
+          "You can use it to create your own and show people what you're capable of!"
+        ],
+        "image": "/src/images/projects/porfolio.png",
+        "techs": ["Astro", "TypeScript", "CSS", "SASS", "Open Props"],
+        "code": "https://github.com/kunSurenioRBG/porfolio"
       }
     ]
   },
@@ -89,41 +163,37 @@
         "src": "/src/images/contributions/advanced-periodontics.jpg",
         "alt": "Advanced Periodontics",
         "title": "Advanced Periodontics",
-        "description": "In collaboration with a marketing agency in Texas, United States. I worked on the creation of the website for the Advanced Periodontics & Dental Implants clinic.",
+        "description": "Collaboration with marketing agency in Texas to create the website for Advanced Periodontics & Dental Implants clinic.",
         "techs": ["HTML", "CSS", "JavaScript", "PHP", "WordPress"],
         "repo": "#",
         "repo_label": "Repository",
         "commits": "#"
       },
       {
-        "src": "/src/images/contributions/advanced-periodontics.jpg",
-        "alt": "Advanced Periodontics",
-        "title": "Advanced Periodontics",
-        "description": "In collaboration with a marketing agency in Texas, United States. I worked on the creation of the website for the Advanced Periodontics & Dental Implants clinic.",
-        "techs": ["HTML", "CSS", "JavaScript", "PHP", "WordPress"],
-        "repo": "#",
-        "repo_label": "Repository",
-        "commits": "#"
-      },
-      {
-        "src": "/src/images/contributions/advanced-periodontics.jpg",
-        "alt": "Advanced Periodontics",
-        "title": "Advanced Periodontics",
-        "description": "In collaboration with a marketing agency in Texas, United States. I worked on the creation of the website for the Advanced Periodontics & Dental Implants clinic.",
-        "techs": ["HTML", "CSS", "JavaScript", "PHP", "WordPress"],
+        "src": "/src/images/contributions/ana-cards.jpg",
+        "alt": "Ana Rangel UX Portfolio",
+        "title": "Ana Rangel UX Portfolio",
+        "description": "Development of personal portfolio for UX designer Ana Rangel, focused on performance and modern design.",
+        "techs": ["Astro", "CSS", "SASS", "TypeScript", "Vercel"],
         "repo": "#",
         "repo_label": "Repository",
         "commits": "#"
       }
     ]
   },
+  "social_media": {
+    "title": "Social Media",
+    "subtitle": "Follow me on social media for daily content about AI, Machine Learning and personal development",
+    "linkedin_url": "kunsurenio",
+    "youtube_url": "kunsurenio"
+  },
   "about": {
     "title": "About me",
-    "subtitle": "I'm a Midudev and ManzDev mod but I'm happier being an AnaRangel mod",
-    "description": "I am a Frontend Web Developer and WordPress Developer with over 3 years of experience, specialized in creating modern designs and optimizing web performance, with a focus on technologies such as HTML 5, CSS 3, JavaScript ES6+ and WordPress. I handle frameworks such as React and Astro, and I am an expert in WordPress visual builders, in addition to having a strong technical knowledge in Core Web Vitals, which makes me a passionate and highly qualified professional for any web development project."
+    "subtitle": "I'm resourceful, outgoing, I like Pokémon and bread with olive oil. ",
+    "description": "I am an Artificial Intelligence engineer specialized in Machine Learning and Computer Vision. I consider myself an outgoing person with experience in public speaking and leadership skills: I enjoy guiding teams and managing projects collaboratively.\n\nI'm passionate about applied AI: I design, train and deploy computer vision solutions and ML pipelines that solve real problems. I work with a practical and innovation-driven approach, always seeking efficient, reproducible, and production-oriented solutions.\n\nI'm always open to new collaborations and challenges. If you're looking for someone reliable, creative, and committed to delivering high-quality work on AI projects, contact me and let's talk about your idea."
   },
   "contact": {
-    "title": "Ready to make your dreams come true?",
+    "title": "Ready to bring your ideas to life?",
     "subtitle": "I can boost your project or be part of your team"
   },
   "footer": {
@@ -134,6 +204,7 @@
     "developed": {
       "developed_with": "Made with",
       "developed_by": "by"
-    }
+    },
+    "copyright": "Kun Tech | All rights reserved"
   }
 }

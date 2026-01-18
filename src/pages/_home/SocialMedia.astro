@@ -1,0 +1,224 @@
+---
+import { Icon } from 'astro-icon/components'
+import { t } from 'i18n:astro'
+
+// eslint-disable-next-line camelcase
+const { title, subtitle, linkedin_url, youtube_url } = t('social_media', {
+  returnObjects: true
+})
+---
+
+<section id="redes-sociales" class="social-media">
+  <h2>
+    <span>{title}</span>
+  </h2>
+  {subtitle && <p class="subtitle">{subtitle}</p>}
+
+  <div class="social-feeds">
+    <!-- LinkedIn Feed -->
+    <div class="feed-container linkedin-feed">
+      <div class="feed-header">
+        <Icon name="linkedin" size={32} />
+        <h3>LinkedIn</h3>
+      </div>
+      <div class="feed-content">
+        {/* eslint-disable-next-line camelcase */}
+        <iframe
+          src={`https://www.linkedin.com/embed/feed/update/urn:li:share:${
+            // eslint-disable-next-line camelcase
+            linkedin_url
+          }`}
+          height="600"
+          width="100%"
+          frameborder="0"
+          allowfullscreen=""
+          title="LinkedIn Feed"></iframe>
+        <p class="feed-fallback">
+          Visita mi perfil de <a
+            href="https://www.linkedin.com/in/kunsurenio"
+            target="_blank"
+            rel="noopener noreferrer">LinkedIn</a
+          > para ver mis últimas publicaciones.
+        </p>
+      </div>
+    </div>
+
+    <!-- YouTube Feed -->
+    <div class="feed-container youtube-feed">
+      <div class="feed-header">
+        <Icon name="youtube" size={32} />
+        <h3>YouTube</h3>
+      </div>
+      <div class="feed-content">
+        <div class="youtube-embed">
+          <!-- Canal de YouTube embed -->
+          {/* eslint-disable-next-line camelcase */}
+          <iframe
+            src={`https://www.youtube.com/embed?listType=user_uploads&list=${
+              // eslint-disable-next-line camelcase
+              youtube_url
+            }`}
+            height="400"
+            width="100%"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="YouTube Videos"></iframe>
+        </div>
+        <p class="feed-fallback">
+          {/* eslint-disable-next-line camelcase */}
+          Suscríbete a mi canal de <a
+            href={`https://www.youtube.com/@${
+              // eslint-disable-next-line camelcase
+              youtube_url
+            }`}
+            target="_blank"
+            rel="noopener noreferrer">YouTube</a
+          > para más contenido.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .social-media {
+    padding-bottom: 120px;
+
+    & h2 {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+      margin-bottom: 24px;
+
+      @media (width >= 768px) {
+        justify-content: start;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 1px;
+          background-color: var(--border-color);
+        }
+      }
+    }
+
+    & .subtitle {
+      text-align: center;
+      font-size: 1.125rem;
+      color: var(--text-description-color);
+      margin-bottom: 48px;
+
+      @media (width >= 768px) {
+        text-align: left;
+      }
+    }
+
+    & .social-feeds {
+      display: grid;
+      gap: 48px;
+
+      @media (width >= 1200px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+    }
+
+    & .feed-container {
+      background-color: var(--bg-secondary-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: var(--transition-bg), var(--transition-border);
+
+      & .feed-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+
+        & h3 {
+          margin: 0;
+          font-size: 1.5rem;
+        }
+
+        & svg {
+          color: var(--text-color);
+          transition: var(--transition-text);
+        }
+      }
+
+      & .feed-content {
+        & iframe {
+          border-radius: 8px;
+          max-width: 100%;
+        }
+
+        & .feed-fallback {
+          margin-top: 16px;
+          font-size: 0.875rem;
+          color: var(--text-description-color);
+          text-align: center;
+
+          & a {
+            color: var(--text-color);
+            text-decoration: underline;
+            transition: var(--transition-text);
+
+            &:hover {
+              color: var(--text-description-color);
+            }
+          }
+        }
+
+        & .youtube-embed {
+          position: relative;
+          padding-bottom: 56.25%; /* 16:9 aspect ratio */
+          height: 0;
+          overflow: hidden;
+
+          & iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    & .linkedin-feed {
+      & .feed-header svg {
+        color: #0077b5;
+      }
+    }
+
+    & .youtube-feed {
+      & .feed-header svg {
+        color: #ff0000;
+      }
+    }
+  }
+</style>
+
+<script>
+  // Script para manejar la carga dinámica de feeds (opcional)
+  // Aquí podrías agregar lógica para cargar publicaciones vía API si lo deseas
+
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Social Media section loaded')
+
+    // Ejemplo: Si quisieras usar la API de LinkedIn o YouTube
+    // const loadLinkedInFeed = async () => {
+    //   // Implementar carga de feed de LinkedIn
+    // }
+
+    // const loadYouTubeFeed = async () => {
+    //   // Implementar carga de feed de YouTube
+    // }
+  })
+</script>

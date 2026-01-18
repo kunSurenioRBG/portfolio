@@ -19,7 +19,8 @@ const { src, alt, title, description, techs, repo, repoLabel, commits } =
   Astro.props
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/images/contributions/*.{jpeg,jpg,png}'
+  '/src/images/contributions/*.{jpeg,jpg,png}',
+  { eager: true }
 )
 if (!images[src])
   throw new Error(
@@ -31,7 +32,7 @@ if (!images[src])
   <div>
     <a href={repo}>
       <Picture
-        src={images[src]()}
+        src={images[src].default}
         alt={alt}
         width={293}
         height={168}
@@ -47,11 +48,72 @@ if (!images[src])
   <div class="badges">
     {
       techs.map((tech) => {
-        const techLower = tech.toLowerCase().replaceAll(' ', '-')
+        const techLower = tech
+          .toLowerCase()
+          .replaceAll(' ', '-')
+          .replaceAll('.', '-')
+        let iconName: string | null = `techs/${techLower}`
+
+        // Casos especiales para iconos con nombres diferentes
+        if (techLower === 'n8n') {
+          iconName = 'techs/n8n'
+        } else if (techLower === 'ocr') {
+          iconName = 'techs/ocr-svgrepo-com'
+        } else if (techLower === 'llm') {
+          iconName = 'techs/openai'
+        } else if (techLower === 'react') {
+          iconName = 'techs/react'
+        } else if (techLower === 'react-native') {
+          iconName = 'techs/react'
+        } else if (techLower === 'expo') {
+          iconName = 'techs/expo-svgrepo-com'
+        } else if (techLower === 'python') {
+          iconName = 'techs/python-svgrepo-com'
+        } else if (techLower === 'pytorch') {
+          iconName = 'techs/pytorch-svgrepo-com'
+        } else if (techLower === 'firebase') {
+          iconName = 'techs/firebase'
+        } else if (techLower === 'sass') {
+          iconName = 'techs/sass'
+        } else if (techLower === 'wordpress') {
+          iconName = 'techs/wordpress'
+        } else if (techLower === 'pwa') {
+          iconName = 'techs/pwa'
+        } else if (techLower === 'open-props') {
+          iconName = 'techs/open-props'
+        } else if (techLower === 'docker') {
+          iconName = 'techs/docker-svgrepo-com'
+        } else if (techLower === 'wsl') {
+          iconName = 'techs/Logo_WSL'
+        } else if (techLower === 'unreal-engine') {
+          iconName = 'techs/unreal-engine-svgrepo-com'
+        } else if (techLower === 'scbi') {
+          iconName = 'techs/SCBI.png'
+        } else if (techLower === 'gaussian-splatting') {
+          iconName = 'techs/unreal-engine-svgrepo-com'
+        } else if (techLower === 'opencv') {
+          iconName = 'techs/opencv'
+        } else if (techLower === 'yolo') {
+          iconName = 'techs/ultralytics'
+        } else if (
+          ['tensorflow', 'ai-architecture', 'vercel'].includes(techLower)
+        ) {
+          // Tecnologías sin iconos específicos
+          iconName = null
+        }
 
         return (
           <span class={`badge-tech ${techLower}`}>
-            <Icon name={`techs/${techLower}`} size={16} />
+            {iconName &&
+              (iconName.endsWith('.png') ? (
+                <img
+                  src={`/${iconName}`}
+                  alt={tech}
+                  style="width: 16px; height: 16px;"
+                />
+              ) : (
+                <Icon name={iconName} size={16} />
+              ))}
             <span>{tech}</span>
           </span>
         )

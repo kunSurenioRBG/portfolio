@@ -12,15 +12,16 @@ const { title, projects } = t('projects', {
     <span>{title}</span>
   </h2>
   {
-    projects.map(({ title, description, image, techs, code, preview }) => (
+    projects.map((project: any) => (
       <CardProject
-        src={image}
-        alt={title}
-        title={title}
-        description={description}
-        techs={techs}
-        code={code}
-        preview={preview}
+        src={project.image}
+        alt={project.title}
+        title={project.title}
+        description={project.description}
+        techs={project.techs}
+        {...(project.code && { code: project.code })}
+        {...(project.linkedin && { linkedin: project.linkedin })}
+        {...(project.linkedin_url && { linkedin_url: project.linkedin_url })}
       />
     ))
   }
@@ -36,7 +37,7 @@ const { title, projects } = t('projects', {
       justify-content: center;
       align-items: center;
       white-space: nowrap;
-      margin-bottom: 86px;
+      margin-bottom: 48px;
 
       @media (width >= 768px) {
         justify-content: start;

@@ -3,7 +3,6 @@ import { Icon } from 'astro-icon/components'
 import { switchLocalePath, t } from 'i18n:astro'
 import ToggleSwitch from '@components/ToggleSwitch.astro'
 
-// Obtenemos los enlaces de la navegación de locales
 const links = t('navbar', { returnObjects: true })
 ---
 
@@ -78,7 +77,7 @@ const links = t('navbar', { returnObjects: true })
 
 <style>
   nav#menu {
-    background-color: color-mix(in srgb, var(--bg-color), transparent 30%);
+    background-color: var(--bg-color);
     backdrop-filter: blur(12px);
     padding-block: 1rem;
     padding-inline: var(--mobile-inline-padding);
@@ -101,7 +100,7 @@ const links = t('navbar', { returnObjects: true })
       @media (width >= 768px) {
         --gap: 35px;
 
-        background-color: color-mix(in srgb, var(--bg-color), transparent 30%);
+        background-color: var(--bg-color);
         backdrop-filter: blur(12px);
         display: flex;
         align-items: center;
@@ -375,10 +374,16 @@ const links = t('navbar', { returnObjects: true })
   const getScheme = window.matchMedia('(prefers-color-scheme: dark)')
 
   function toggleDarkMode(state: boolean) {
+    // Guardar la posición actual del scroll antes de cambiar el tema
+    const scrollPosition = window.scrollY
+
     document.documentElement.classList.toggle('dark', state)
     toggleThumbs.forEach((thumb) => {
       thumb.classList.toggle('active', state)
     })
+
+    // Restaurar la posición del scroll después del cambio
+    window.scrollTo(0, scrollPosition)
 
     // Establecemos el valor de la variable global
     // con el valor del parámetro state

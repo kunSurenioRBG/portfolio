@@ -10,44 +10,128 @@ interface Props {
   title: string
   description: string
   techs: string[]
-  code: string
-  preview: string
+  code?: string
+  linkedin?: string
+  // eslint-disable-next-line camelcase
+  linkedin_url?: string
 }
 
-const { src, alt, title, description, techs, code, preview } = Astro.props
+// eslint-disable-next-line camelcase
+const { src, alt, title, description, techs, code, linkedin, linkedin_url } =
+  Astro.props
+
+// Detectar si es un GIF para servirlo directamente desde public
+const isGif = src.endsWith('.gif')
+
+// Determinar la ruta correcta para GIFs
+const gifPath = isGif ? src.replace('/public/', '/') : src
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/images/projects/*.{jpeg,jpg,png}'
+  '/src/images/projects/*.{jpeg,jpg,png}',
+  { eager: true }
 )
-if (!images[src])
+
+if (!isGif && !images[src])
   throw new Error(
     `"${src}" no existe en: "/src/images/projects/*.{jpeg,jpg,png}"`
   )
 ---
 
 <section class="card-project">
-  <div>
-    <a href="#">
-      <Picture
-        src={images[src]()}
-        alt={alt}
-        width={434}
-        height={288}
-        formats={['avif', 'webp']}
-        fallbackFormat="webp"
-      />
-    </a>
+  <div class="image-container">
+    {
+      isGif ? (
+        <img src={gifPath} alt={alt} width={434} height={288} loading="lazy" />
+      ) : (
+        <Picture
+          src={images[src].default}
+          alt={alt}
+          width={434}
+          height={288}
+          formats={['avif', 'webp']}
+          fallbackFormat="webp"
+        />
+      )
+    }
   </div>
   <div class="description">
-    <h3><a href="#">{title}</a></h3>
+    <h3>
+      {
+        code ? (
+          <a href={code} target="_blank" rel="noopener noreferrer">
+            {title}
+          </a>
+        ) : // eslint-disable-next-line camelcase
+        linkedin_url ? (
+          // eslint-disable-next-line camelcase
+          <a href={linkedin_url} target="_blank" rel="noopener noreferrer">
+            {title}
+          </a>
+        ) : (
+          <span>{title}</span>
+        )
+      }
+    </h3>
     <div class="badges">
       {
         techs.map((tech) => {
-          const techLower = tech.toLowerCase().replaceAll(' ', '-')
+          const techLower = tech
+            .toLowerCase()
+            .replaceAll(' ', '-')
+            .replaceAll('.', '-')
+          let iconName: string | null = `techs/${techLower}`
+
+          // Casos especiales para iconos con nombres diferentes
+          if (techLower === 'n8n') {
+            iconName = 'techs/n8n'
+          } else if (techLower === 'ocr') {
+            iconName = 'techs/ocr-svgrepo-com'
+          } else if (techLower === 'llm') {
+            iconName = 'techs/openai'
+          } else if (techLower === 'react') {
+            iconName = 'techs/react'
+          } else if (techLower === 'react-native') {
+            iconName = 'techs/react'
+          } else if (techLower === 'expo') {
+            iconName = 'techs/expo-svgrepo-com'
+          } else if (techLower === 'python') {
+            iconName = 'techs/python-svgrepo-com'
+          } else if (techLower === 'pytorch') {
+            iconName = 'techs/pytorch-svgrepo-com'
+          } else if (techLower === 'firebase') {
+            iconName = 'techs/firebase'
+          } else if (techLower === 'sass') {
+            iconName = 'techs/sass'
+          } else if (techLower === 'wordpress') {
+            iconName = 'techs/wordpress'
+          } else if (techLower === 'pwa') {
+            iconName = 'techs/pwa'
+          } else if (techLower === 'open-props') {
+            iconName = 'techs/open-props'
+          } else if (techLower === 'docker') {
+            iconName = 'techs/docker-svgrepo-com'
+          } else if (techLower === 'wsl') {
+            iconName = 'techs/Logo_WSL'
+          } else if (techLower === 'unreal-engine') {
+            iconName = 'techs/unreal-engine-svgrepo-com'
+          } else if (techLower === 'scbi') {
+            iconName = 'techs/terminal'
+          } else if (techLower === 'gaussian-splatting') {
+            iconName = 'techs/unreal-engine-svgrepo-com'
+          } else if (techLower === 'opencv') {
+            iconName = 'techs/opencv'
+          } else if (techLower === 'yolo') {
+            iconName = 'techs/ultralytics'
+          } else if (
+            ['tensorflow', 'ai-architecture', 'vercel'].includes(techLower)
+          ) {
+            // Tecnologías sin iconos específicos
+            iconName = null
+          }
 
           return (
             <span class={`badge-tech ${techLower}`}>
-              <Icon name={`techs/${techLower}`} size={24} />
+              {iconName && <Icon name={iconName} size={24} />}
               <span>{tech}</span>
             </span>
           )
@@ -56,14 +140,23 @@ if (!images[src])
     </div>
     <p>{description}</p>
     <div class="links">
-      <a href="#">
-        <Icon name="github" size={24} />
-        {code}
-      </a>
-      <a href="#">
-        <Icon name="link" size={24} />
-        {preview}
-      </a>
+      {/* eslint-disable-next-line camelcase */}
+      {
+        linkedin && linkedin_url ? (
+          // eslint-disable-next-line camelcase
+          <a href={linkedin_url} target="_blank" rel="noopener noreferrer">
+            <Icon name="linkedin" size={24} />
+            {linkedin}
+          </a>
+        ) : (
+          code && (
+            <a href={code} target="_blank" rel="noopener noreferrer">
+              <Icon name="github" size={24} />
+              Código
+            </a>
+          )
+        )
+      }
     </div>
   </div>
 </section>
@@ -73,9 +166,16 @@ if (!images[src])
     display: grid;
     align-items: center;
     gap: 48px;
-    margin-bottom: 86px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
     max-width: 434px;
     margin-inline: auto;
+    border-bottom: 1px solid var(--border-color);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
 
     @media (width >= 1200px) {
       grid-template-columns: 434px 1fr;
@@ -90,8 +190,14 @@ if (!images[src])
       }
     }
 
-    & img {
-      border-radius: 4px;
+    & .image-container {
+      & img,
+      & picture {
+        border-radius: 4px;
+        display: block;
+        width: 100%;
+        height: auto;
+      }
     }
 
     & .description {
@@ -104,6 +210,10 @@ if (!images[src])
           &:hover {
             color: var(--text-description-color);
           }
+        }
+
+        & span {
+          color: inherit;
         }
       }
       .badges {

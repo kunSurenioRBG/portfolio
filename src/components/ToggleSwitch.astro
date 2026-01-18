@@ -25,6 +25,7 @@ import { Icon } from 'astro-icon/components'
       opacity: 0;
       width: 0;
       height: 0;
+      position: absolute;
     }
 
     & .toggle-thumb {
@@ -40,6 +41,7 @@ import { Icon } from 'astro-icon/components'
       border-radius: var(--radius);
       overflow: hidden;
       transition: var(--transition-bg);
+      will-change: transform;
 
       &.active::before {
         /* Calcula el offset para que el .toggle-thumb se ajuste correctamente */
@@ -64,6 +66,7 @@ import { Icon } from 'astro-icon/components'
         transition:
           translate 300ms ease,
           var(--transition-bg);
+        will-change: translate;
       }
 
       & svg {
