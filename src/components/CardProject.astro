@@ -23,8 +23,10 @@ const { src, alt, title, description, techs, code, linkedin, linkedin_url } =
 // Detectar si es un GIF para servirlo directamente desde public
 const isGif = src.endsWith('.gif')
 
-// Determinar la ruta correcta para GIFs
-const gifPath = isGif ? src.replace('/public/', '/') : src
+// Determinar la ruta correcta para GIFs con el base URL
+const gifPath = isGif
+  ? src.replace('/public/', `${import.meta.env.BASE_URL}/`)
+  : src
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/images/projects/*.{jpeg,jpg,png}',
@@ -142,6 +144,7 @@ if (!isGif && !images[src])
     <div class="links">
       {/* eslint-disable-next-line camelcase */}
       {
+        // eslint-disable-next-line camelcase
         linkedin && linkedin_url ? (
           // eslint-disable-next-line camelcase
           <a href={linkedin_url} target="_blank" rel="noopener noreferrer">
