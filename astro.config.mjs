@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config'
-import { URL } from './src/data/constants'
+import { URL } from './src/data/constants' // Puedes mantenerlo si lo usas en otros sitios, pero abajo usaremos la URL directa para asegurar.
 
 import tunnel from 'astro-tunnel'
 import icon from 'astro-icon'
@@ -11,7 +11,12 @@ import compressor from 'astro-compressor'
 
 // https://astro.build/config
 export default defineConfig({
-  site: URL,
+  // 1. CAMBIO IMPORTANTE: La URL base de tu usuario
+  site: 'https://kunsureniorbg.github.io',
+  
+  // 2. CAMBIO IMPORTANTE: El nombre de tu repositorio (esto arregla el CSS)
+  base: '/porfolio',
+
   server: {
     host: true
   },
@@ -29,7 +34,8 @@ export default defineConfig({
       locales: ['es', 'en']
     }),
     sitemap({
-      canonicalURL: URL,
+      // Aseguramos que el sitemap use la URL correcta concatenada
+      canonicalURL: 'https://kunsureniorbg.github.io/porfolio',
       lastmod: new Date(),
       createLinkInHead: false,
       xmlns: {
