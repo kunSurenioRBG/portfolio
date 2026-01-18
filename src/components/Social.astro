@@ -6,32 +6,86 @@ import { Icon } from 'astro-icon/components'
   <nav>
     <a
       href="https://github.com/kunSurenioRBG"
+      data-app-url="github://user?username=kunSurenioRBG"
+      data-web-url="https://github.com/kunSurenioRBG"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="GitHub"
+      onclick="handleDeepLink(event)"
     >
       <Icon name="github" size={28} />
     </a>
+
     <a
       href="https://www.linkedin.com/in/kunsurenio"
+      data-app-url="linkedin://in/kunsurenio"
+      data-web-url="https://www.linkedin.com/in/kunsurenio"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="LinkedIn"
+      onclick="handleDeepLink(event)"
     >
       <Icon name="linkedin" size={28} />
     </a>
+
     <a
       href="https://www.youtube.com/@kunSure%C3%B1o"
+      data-app-url="vnd.youtube://user/kunSure%C3%B1o"
+      data-web-url="https://www.youtube.com/@kunSure%C3%B1o"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="YouTube"
+      onclick="handleDeepLink(event)"
     >
       <Icon name="youtube" size={28} />
     </a>
+
     <a href="mailto:poncearrochasanti@gmail.com" aria-label="Mail">
       <Icon name="mail" size={28} />
     </a>
   </nav>
+
+  <script>
+    ;(function () {
+      const isMobile =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+
+      ;(window as any).handleDeepLink = function (e: any) {
+        const anchor = e.currentTarget || e.target
+        const appUrl =
+          anchor.getAttribute && anchor.getAttribute('data-app-url')
+        const webUrl =
+          (anchor.getAttribute && anchor.getAttribute('data-web-url')) ||
+          anchor.href
+
+        if (!isMobile || !appUrl) {
+          return
+        }
+
+        e.preventDefault()
+
+        let didHide = false
+
+        function onVisibilityChange() {
+          if (document.hidden) didHide = true
+        }
+
+        document.addEventListener('visibilitychange', onVisibilityChange, {
+          once: true
+        })
+        window.location = appUrl
+
+        setTimeout(() => {
+          document.removeEventListener('visibilitychange', onVisibilityChange)
+          if (!didHide) {
+            window.open(webUrl, '_blank', 'noopener')
+          }
+        }, 800)
+      }
+    })()
+  </script>
 </aside>
 
 <style>
