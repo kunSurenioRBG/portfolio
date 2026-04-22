@@ -101,20 +101,27 @@
     "title": "Proyectos",
     "projects": [
       {
-        "title": "Veronda: Gestión de facturas, recibos y contratos",
-        "description": "Solución impulsada por Inteligencia Artificial diseñada para automatizar la gestión integral de facturas, recibos y contratos mediante el uso de modelos LLM y OCR. Integrada con base de datos y servicios de Google para control y gestión de todos los documentos.",
-        "image": "/src/images/projects/logo_cerezo.png",
+        "title": "Startup Due Diligence Automation System - Multi-Agent AI Pipeline",
+        "description": "Diseño e implementación de un sistema multiagente de IA para automatizar el due diligence completo de startups, desde datos brutos hasta recomendación de inversión. Ejecuta investigación y análisis en paralelo, reduce el proceso de días a minutos y genera una decisión estructurada (invest/hold/pass) con score de confianza cuantificado.",
+        "image": "/src/images/projects/startup-due-diligence-automation-system.png",
+        "techs": ["Anthropic Claude", "LangGraph", "LangSmith", "Python"],
+        "linkedin": "Ver proyecto en LinkedIn",
+        "linkedin_url": "https://www.linkedin.com/in/kunsurenio/details/projects/"
+      },
+      {
+        "title": "AI Agent Orchestration System",
+        "description": "Diseñé e implementé un sistema de orquestación de agentes IA de extremo a extremo, totalmente integrado en el flujo de desarrollo y conectado directamente al pipeline de CRM. Con Claude (Anthropic) como orquestador principal mediante Claude Agent SDK, coordina de forma autónoma subagentes especializados y habilidades modulares, reduciendo aproximadamente un 70% el tiempo dedicado a tareas repetitivas.",
+        "image": "/src/images/projects/ai-agent-orchestration-system.png",
         "techs": [
-          "n8n",
-          "JavaScript",
           "TypeScript",
-          "OCR",
+          "Claude Agent SDK",
+          "Codex SDK",
           "LLM",
-          "React",
-          "Expo"
+          "Docker",
+          "AI-Architecture"
         ],
-        "linkedin": "Más detalles en LinkedIn",
-        "linkedin_url": "https://www.linkedin.com/in/kunsurenio/"
+        "linkedin": "Ver proyecto en LinkedIn",
+        "linkedin_url": "https://www.linkedin.com/in/kunsurenio/details/projects/"
       },
       {
         "title": "Representación neuronal y segmentación dinámica para la generación de nuevas vistas en escenas 3D",
@@ -143,6 +150,22 @@
           "Docker"
         ],
         "code": "https://github.com/kunSurenioRBG/RenderFlowAA"
+      },
+      {
+        "title": "Veronda: Gestión de facturas, recibos y contratos",
+        "description": "Solución impulsada por Inteligencia Artificial diseñada para automatizar la gestión integral de facturas, recibos y contratos mediante el uso de modelos LLM y OCR. Integrada con base de datos y servicios de Google para control y gestión de todos los documentos.",
+        "image": "/src/images/projects/logo_cerezo.png",
+        "techs": [
+          "n8n",
+          "JavaScript",
+          "TypeScript",
+          "OCR",
+          "LLM",
+          "React",
+          "Expo"
+        ],
+        "linkedin": "Más detalles en LinkedIn",
+        "linkedin_url": "https://www.linkedin.com/in/kunsurenio/"
       },
       {
         "title": "Portfolio Personal - Diseño Moderno",

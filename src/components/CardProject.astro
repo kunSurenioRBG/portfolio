@@ -125,7 +125,16 @@ if (!isGif && !images[src])
           } else if (techLower === 'yolo') {
             iconName = 'techs/ultralytics'
           } else if (
-            ['tensorflow', 'ai-architecture', 'vercel'].includes(techLower)
+            [
+              'tensorflow',
+              'ai-architecture',
+              'vercel',
+              'claude-agent-sdk',
+              'codex-sdk',
+              'anthropic-claude',
+              'langgraph',
+              'langsmith'
+            ].includes(techLower)
           ) {
             // Tecnologías sin iconos específicos
             iconName = null

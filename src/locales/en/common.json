@@ -101,20 +101,27 @@
     "title": "Projects",
     "projects": [
       {
-        "title": "Veronda: Invoice, Receipt and Contract Management",
-        "description": "AI-powered solution designed to automate comprehensive invoice, receipt, and contract management using LLM and OCR models. Integrated with Google database and services for control and management of all documents.",
-        "image": "/src/images/projects/logo_cerezo.png",
+        "title": "Startup Due Diligence Automation System - Multi-Agent AI Pipeline",
+        "description": "Designed and implemented a multi-agent AI system that automates end-to-end startup due diligence, from raw company data to an investment recommendation. Runs research and analysis agents in parallel, cuts evaluation time from days to minutes, and outputs a structured invest/hold/pass decision with a quantified confidence score.",
+        "image": "/src/images/projects/startup-due-diligence-automation-system.png",
+        "techs": ["Anthropic Claude", "LangGraph", "LangSmith", "Python"],
+        "linkedin": "View project on LinkedIn",
+        "linkedin_url": "https://www.linkedin.com/in/kunsurenio/details/projects/"
+      },
+      {
+        "title": "AI Agent Orchestration System",
+        "description": "Designed and deployed an end-to-end AI agent orchestration system, fully integrated into the development workflow and directly connected to the CRM delivery pipeline. Powered by Claude (Anthropic) through the Claude Agent SDK, it autonomously coordinates specialized subagents and modular skills, reducing repetitive development effort by approximately 70%.",
+        "image": "/src/images/projects/ai-agent-orchestration-system.png",
         "techs": [
-          "n8n",
-          "JavaScript",
           "TypeScript",
-          "OCR",
+          "Claude Agent SDK",
+          "Codex SDK",
           "LLM",
-          "React",
-          "Expo"
+          "Docker",
+          "AI-Architecture"
         ],
-        "linkedin": "More details on LinkedIn",
-        "linkedin_url": "https://www.linkedin.com/in/kunsurenio/"
+        "linkedin": "View project on LinkedIn",
+        "linkedin_url": "https://www.linkedin.com/in/kunsurenio/details/projects/"
       },
       {
         "title": "Neural Representation and Dynamic Segmentation for Novel View Generation in 3D Scenes",
@@ -143,6 +150,22 @@
           "Docker"
         ],
         "code": "https://github.com/kunSurenioRBG/RenderFlowAA"
+      },
+      {
+        "title": "Veronda: Invoice, Receipt and Contract Management",
+        "description": "AI-powered solution designed to automate comprehensive invoice, receipt, and contract management using LLM and OCR models. Integrated with Google database and services for control and management of all documents.",
+        "image": "/src/images/projects/logo_cerezo.png",
+        "techs": [
+          "n8n",
+          "JavaScript",
+          "TypeScript",
+          "OCR",
+          "LLM",
+          "React",
+          "Expo"
+        ],
+        "linkedin": "More details on LinkedIn",
+        "linkedin_url": "https://www.linkedin.com/in/kunsurenio/"
       },
       {
         "title": "Personal Portfolio - Modern Design",
