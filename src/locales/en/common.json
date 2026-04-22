@@ -56,7 +56,7 @@
         },
         {
           "title": "Data Scientist - Computer Vision",
-          "time": ["January 2026"],
+          "time": ["December 2025"],
           "description": [
             "Design and implementation in a CRM of an automated workflow using n8n to orchestrate an intelligent product and service chatbot, operating on multiple communication channels such as WhatsApp and other messaging platforms.",
             "Participation in the development of a software platform for the real estate and construction sector, aimed at automating technical and urban validation of residential blueprints through computer vision and artificial intelligence models."
@@ -82,7 +82,7 @@
         },
         {
           "title": "Researcher at University of Málaga - SCBI Picasso",
-          "time": ["Nov 2024", "July 2025"],
+          "time": ["Sep 2024", "July 2025"],
           "description": "Work carried out at SCBI Picasso, the supercomputing center of the University of Málaga. Design and implementation from scratch of a complete system for neural rendering and synthesis of new views of 3D scenes. Focus on learning 3D scenes from images using optimizable volumetric radiance field models (such as Gaussian Splatting), with the goal of generating new perspectives from arbitrary viewpoints.",
           "techs": [
             "Python",
@@ -214,7 +214,7 @@
   },
   "about": {
     "title": "About me",
-    "subtitle": "I'm resourceful, outgoing, I like Pokémon and bread with olive oil. ",
+    "subtitle": "Your Idea is meant to be Played",
     "description": "I am an Artificial Intelligence engineer specialized in Machine Learning and Computer Vision. I consider myself an outgoing person with experience in public speaking and leadership skills: I enjoy guiding teams and managing projects collaboratively.\n\nI'm passionate about applied AI: I design, train and deploy computer vision solutions and ML pipelines that solve real problems. I work with a practical and innovation-driven approach, always seeking efficient, reproducible, and production-oriented solutions.\n\nI'm always open to new collaborations and challenges. If you're looking for someone reliable, creative, and committed to delivering high-quality work on AI projects, contact me and let's talk about your idea."
   },
   "contact": {

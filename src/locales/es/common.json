@@ -56,7 +56,7 @@
         },
         {
           "title": "Científico de Datos - Visión por Computación",
-          "time": ["Enero 2026"],
+          "time": ["Diciembre 2025"],
           "description": [
             "Diseño e implementación en un CRM de un flujo de trabajo automatizado utilizando n8n para orquestar un chatbot inteligente de productos y servicios, que opere en múltiples canales de comunicación como WhatsApp y otras plataformas de mensajería.",
             "Participación en el desarrollo de una plataforma de software para el sector inmobiliario y de la construcción, orientada a automatizar la validación técnica y urbanística de planos residenciales mediante modelos de visión artificial e inteligencia artificial."
@@ -82,7 +82,7 @@
         },
         {
           "title": "Investigador en la Universidad de Málaga - SCBI Picasso",
-          "time": ["Nov 2024", "Julio 2025"],
+          "time": ["Sep 2024", "Julio 2025"],
           "description": "Trabajo realizado en el SCBI Picasso, el centro de supercomputación de la Universidad de Málaga. Diseño e implementación desde cero de un sistema completo para el renderizado neural y la síntesis de nuevas vistas de escenas 3D. Enfoque en el aprendizaje de escenas 3D a partir de imágenes mediante modelos de campos de radiancia volumétricos optimizables (como Gaussian Splatting), con el objetivo de generar nuevas perspectivas desde puntos de vista arbitrarios.",
           "techs": [
             "Python",
@@ -214,7 +214,7 @@
   },
   "about": {
     "title": "Sobre mí",
-    "subtitle": "Soy resolutivo, extrovertido, me gusta Pokémon y el pan con aceite. ",
+    "subtitle": "Pon en juego tus ideas",
     "description": "Soy ingeniero en Inteligencia Artificial especializado en Machine Learning y Computer Vision. Me considero una persona extrovertida con experiencia en hablar en público y habilidades de liderazgo: disfruto guiando equipos y gestionando proyectos de forma colaborativa.\n\nMe apasiona la IA aplicada: diseño, entreno y despliego soluciones de visión por computador y pipelines de ML que resuelven problemas reales. Trabajo con un enfoque práctico e impulsado por la innovación, buscando siempre soluciones eficientes, reproducibles y orientadas a producción.\n\nEstoy siempre abierto a nuevas colaboraciones y retos. Si buscas a alguien fiable, creativo y comprometido con entregar trabajo de alta calidad en proyectos de IA, contacta conmigo y hablemos sobre tu idea."
   },
   "contact": {
