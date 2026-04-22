@@ -24,6 +24,9 @@ const { title, projects } = t('projects', {
         {...(project.code && { code: project.code })}
         {...(project.linkedin && { linkedin: project.linkedin })}
         {...(project.linkedin_url && { linkedin_url: project.linkedin_url })}
+        {...(project.report_label && { report_label: project.report_label })}
+        {...(project.report_pdf && { report_pdf: project.report_pdf })}
+        {...(project.hide_image !== undefined && { hide_image: project.hide_image })}
       />
     ))
   }

@@ -12,16 +12,35 @@ interface Props {
   techs: string[]
   code?: string
   linkedin?: string
+  report_label?: string
+  report_pdf?: string
+  hide_image?: boolean
   // eslint-disable-next-line camelcase
   linkedin_url?: string
 }
 
 // eslint-disable-next-line camelcase
-const { src, alt, title, description, techs, code, linkedin, linkedin_url } =
-  Astro.props
+const {
+  src,
+  alt,
+  title,
+  description,
+  techs,
+  code,
+  linkedin,
+  report_label,
+  report_pdf,
+  hide_image,
+  linkedin_url
+} = Astro.props
 
 // Detectar si es un GIF para servirlo directamente desde public
 const isGif = src.endsWith('.gif')
+const showImage = !hide_image
+const reportModalId = `report-modal-${title
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/(^-|-$)/g, '')}`
 
 // Determinar la ruta correcta para GIFs con el base URL
 const gifPath = isGif
@@ -33,29 +52,41 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true }
 )
 
-if (!isGif && !images[src])
+const pdfFiles = import.meta.glob<string>('/src/images/**/*.pdf', {
+  eager: true,
+  import: 'default'
+})
+
+const reportPdfUrl = report_pdf ? pdfFiles[report_pdf] : undefined
+
+if (report_pdf && !reportPdfUrl)
+  throw new Error(`"${report_pdf}" no existe en: "/src/images/**/*.pdf"`)
+
+if (showImage && !isGif && !images[src])
   throw new Error(
     `"${src}" no existe en: "/src/images/projects/*.{jpeg,jpg,png}"`
   )
 ---
 
-<section class="card-project">
-  <div class="image-container">
-    {
-      isGif ? (
-        <img src={gifPath} alt={alt} width={434} height={288} loading="lazy" />
-      ) : (
-        <Picture
-          src={images[src].default}
-          alt={alt}
-          width={434}
-          height={288}
-          formats={['avif', 'webp']}
-          fallbackFormat="webp"
-        />
-      )
-    }
-  </div>
+<section class={`card-project ${showImage ? '' : 'no-image'}`}>
+  {
+    showImage && (
+      <div class="image-container">
+        {isGif ? (
+          <img src={gifPath} alt={alt} width={434} height={288} loading="lazy" />
+        ) : (
+          <Picture
+            src={images[src].default}
+            alt={alt}
+            width={434}
+            height={288}
+            formats={['avif', 'webp']}
+            fallbackFormat="webp"
+          />
+        )}
+      </div>
+    )
+  }
   <div class="description">
     <h3>
       {
@@ -151,25 +182,49 @@ if (!isGif && !images[src])
     </div>
     <p>{description}</p>
     <div class="links">
-      {/* eslint-disable-next-line camelcase */}
       {
-        // eslint-disable-next-line camelcase
-        linkedin && linkedin_url ? (
-          // eslint-disable-next-line camelcase
-          <a href={linkedin_url} target="_blank" rel="noopener noreferrer">
-            <Icon name="linkedin" size={24} />
-            {linkedin}
-          </a>
-        ) : (
-          code && (
-            <a href={code} target="_blank" rel="noopener noreferrer">
-              <Icon name="github" size={24} />
-              Código
-            </a>
-          )
+        report_pdf && reportPdfUrl && (
+          <button type="button" data-open-report={reportModalId}>
+            <Icon name="link" size={24} />
+            {report_label ?? 'Previsualizar reporte'}
+          </button>
         )
       }
+      {linkedin && linkedin_url && (
+        <a href={linkedin_url} target="_blank" rel="noopener noreferrer">
+          <Icon name="linkedin" size={24} />
+          {linkedin}
+        </a>
+      )}
+      {!linkedin &&
+        code && (
+          <a href={code} target="_blank" rel="noopener noreferrer">
+            <Icon name="github" size={24} />
+            Código
+          </a>
+        )}
     </div>
+    {
+      report_pdf &&
+        reportPdfUrl && (
+          <dialog id={reportModalId} class="report-modal">
+            <div class="report-modal-content">
+              <div class="report-modal-header">
+                <h4>{title}</h4>
+                <button type="button" class="close-btn" data-close-report>
+                  Cerrar
+                </button>
+              </div>
+              <iframe
+                src={reportPdfUrl}
+                title={`Reporte PDF - ${title}`}
+                width="100%"
+                height="650"
+              />
+            </div>
+          </dialog>
+        )
+    }
   </div>
 </section>
 
@@ -199,6 +254,13 @@ if (!isGif && !images[src])
         & .description {
           order: -1;
         }
+      }
+    }
+
+    &.no-image {
+      @media (width >= 1200px) {
+        grid-template-columns: 1fr;
+        max-width: min(920px, 100%);
       }
     }
 
@@ -245,9 +307,11 @@ if (!isGif && !images[src])
 
       & .links {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 16px;
 
+        & button,
         & a {
           display: inline-flex;
           align-items: center;
@@ -259,7 +323,10 @@ if (!isGif && !images[src])
           padding: 8px 24px;
           border-radius: 1000px;
           border: 1px solid var(--text-color);
-          transition: var(--transition-bg);
+          transition: var(--transition-bg), var(--transition-text);
+          background: transparent;
+          cursor: pointer;
+          font-size: 1rem;
 
           &:hover {
             background-color: var(--bg-secondary-color);
@@ -275,6 +342,78 @@ if (!isGif && !images[src])
       & > * + * {
         margin-top: 24px;
       }
+
+      & .report-modal {
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 0;
+        width: min(92vw, 1000px);
+        max-width: 1000px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+
+        &::backdrop {
+          background: rgb(0 0 0 / 60%);
+        }
+
+        & .report-modal-content {
+          padding: 16px;
+        }
+
+        & .report-modal-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+          margin-bottom: 12px;
+
+          & h4 {
+            margin: 0;
+            font-size: 1rem;
+          }
+
+          & .close-btn {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: transparent;
+            color: var(--text-color);
+            padding: 8px 12px;
+            cursor: pointer;
+          }
+        }
+
+        & iframe {
+          border: 1px solid var(--border-color);
+          border-radius: 8px;
+          background-color: #fff;
+        }
+      }
     }
   }
 </style>
+
+<script>
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement | null
+    if (!target) return
+
+    const openBtn = target.closest('[data-open-report]') as HTMLElement | null
+    if (openBtn) {
+      const modalId = openBtn.getAttribute('data-open-report')
+      if (!modalId) return
+      const modal = document.getElementById(modalId)
+      if (modal instanceof HTMLDialogElement) {
+        modal.showModal()
+      }
+      return
+    }
+
+    const closeBtn = target.closest('[data-close-report]') as HTMLElement | null
+    if (closeBtn) {
+      const modal = closeBtn.closest('dialog')
+      if (modal instanceof HTMLDialogElement) {
+        modal.close()
+      }
+    }
+  })
+</script>

@@ -105,6 +105,9 @@
         "description": "Diseño e implementación de un sistema multiagente de IA para automatizar el due diligence completo de startups, desde datos brutos hasta recomendación de inversión. Ejecuta investigación y análisis en paralelo, reduce el proceso de días a minutos y genera una decisión estructurada (invest/hold/pass) con score de confianza cuantificado.",
         "image": "/src/images/projects/startup-due-diligence-automation-system.png",
         "techs": ["Anthropic Claude", "LangGraph", "LangSmith", "Python"],
+        "report_label": "Previsualizar PDF del due diligence",
+        "report_pdf": "/src/images/Due Diligence Report Stripe.pdf",
+        "hide_image": true,
         "linkedin": "Ver proyecto en LinkedIn",
         "linkedin_url": "https://www.linkedin.com/in/kunsurenio/details/projects/"
       },

@@ -84,6 +84,36 @@ html {
     transition: var(--transition-bg);
   }
 
+  .anthropic-claude {
+    background-color: #6d4c41;
+    transition: var(--transition-bg);
+  }
+
+  .langgraph {
+    background-color: #2e5b9a;
+    transition: var(--transition-bg);
+  }
+
+  .langsmith {
+    background-color: #2f7f6e;
+    transition: var(--transition-bg);
+  }
+
+  .claude-agent-sdk {
+    background-color: #6b5aa6;
+    transition: var(--transition-bg);
+  }
+
+  .codex-sdk {
+    background-color: #0f6e8c;
+    transition: var(--transition-bg);
+  }
+
+  .ai-architecture {
+    background-color: #4f5d75;
+    transition: var(--transition-bg);
+  }
+
   .docker {
     background-color: #2496ed;
     transition: var(--transition-bg);
@@ -179,6 +209,30 @@ html.dark {
 
   .llm {
     background-color: #2ecc71;
+  }
+
+  .anthropic-claude {
+    background-color: #cdb6ad;
+  }
+
+  .langgraph {
+    background-color: #b5d1ff;
+  }
+
+  .langsmith {
+    background-color: #bce7dd;
+  }
+
+  .claude-agent-sdk {
+    background-color: #d3c8f7;
+  }
+
+  .codex-sdk {
+    background-color: #b7e3f1;
+  }
+
+  .ai-architecture {
+    background-color: #c7d0e2;
   }
 
   .docker {
