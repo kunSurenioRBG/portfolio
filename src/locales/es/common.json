@@ -29,11 +29,17 @@
   "experience": {
     "title": "Experiencia laboral",
     "jobs": {
-      "jobs_title": ["Freelance", "inOne Golf", "Investigación"],
+      "jobs_title": [
+        "Freelance",
+        "inOne Golf",
+        "Investigación"
+      ],
       "jobs_description": [
         {
           "title": "Desarrollador Freelance",
-          "time": ["Marzo 2023"],
+          "time": [
+            "Marzo 2023"
+          ],
           "description": [
             "¿Tienes una idea o un desafío técnico?",
             "Como desarrollador freelance, me especializo en transformar problemas complejos en soluciones tecnológicas eficientes. Combino el desarrollo de software a medida con la potencia de la Inteligencia Artificial y la orquestación de flujos de trabajo automatizados.",
@@ -56,7 +62,9 @@
         },
         {
           "title": "Científico de Datos - Visión por Computación",
-          "time": ["Diciembre 2025"],
+          "time": [
+            "Diciembre 2025"
+          ],
           "description": [
             "Diseño e implementación en un CRM de un flujo de trabajo automatizado utilizando n8n para orquestar un chatbot inteligente de productos y servicios, que opere en múltiples canales de comunicación como WhatsApp y otras plataformas de mensajería.",
             "Participación en el desarrollo de una plataforma de software para el sector inmobiliario y de la construcción, orientada a automatizar la validación técnica y urbanística de planos residenciales mediante modelos de visión artificial e inteligencia artificial."
@@ -82,7 +90,10 @@
         },
         {
           "title": "Investigador en la Universidad de Málaga - SCBI Picasso",
-          "time": ["Sep 2024", "Julio 2025"],
+          "time": [
+            "Sep 2024",
+            "Julio 2025"
+          ],
           "description": "Trabajo realizado en el SCBI Picasso, el centro de supercomputación de la Universidad de Málaga. Diseño e implementación desde cero de un sistema completo para el renderizado neural y la síntesis de nuevas vistas de escenas 3D. Enfoque en el aprendizaje de escenas 3D a partir de imágenes mediante modelos de campos de radiancia volumétricos optimizables (como Gaussian Splatting), con el objetivo de generar nuevas perspectivas desde puntos de vista arbitrarios.",
           "techs": [
             "Python",
@@ -103,9 +114,14 @@
       {
         "title": "Startup Due Diligence Automation System - Multi-Agent AI Pipeline",
         "description": "Diseño e implementación de un sistema multiagente de IA para automatizar el due diligence completo de startups, desde datos brutos hasta recomendación de inversión. Ejecuta investigación y análisis en paralelo, reduce el proceso de días a minutos y genera una decisión estructurada (invest/hold/pass) con score de confianza cuantificado.",
-        "image": "/src/images/projects/startup-due-diligence-automation-system.png",
-        "techs": ["Anthropic Claude", "LangGraph", "LangSmith", "Python"],
-        "report_label": "Previsualizar PDF del due diligence",
+        "image": "/src/images/projects/ai-workflow-automation.png",
+        "techs": [
+          "Anthropic Claude",
+          "LangGraph",
+          "LangSmith",
+          "Python"
+        ],
+        "report_label": "Previsualizar PDF financiero",
         "report_pdf": "/src/images/Due Diligence Report Stripe.pdf",
         "hide_image": true,
         "linkedin": "Ver proyecto en LinkedIn",
@@ -114,7 +130,7 @@
       {
         "title": "AI Agent Orchestration System",
         "description": "Diseñé e implementé un sistema de orquestación de agentes IA de extremo a extremo, totalmente integrado en el flujo de desarrollo y conectado directamente al pipeline de CRM. Con Claude (Anthropic) como orquestador principal mediante Claude Agent SDK, coordina de forma autónoma subagentes especializados y habilidades modulares, reduciendo aproximadamente un 70% el tiempo dedicado a tareas repetitivas.",
-        "image": "/src/images/projects/ai-agent-orchestration-system.png",
+        "image": "/src/images/projects/multi_agente.png",
         "techs": [
           "TypeScript",
           "Claude Agent SDK",
@@ -177,7 +193,13 @@
           "¡Puedes usarlo para crear el tuyo propio y dar a conocer a la gente de lo que eres capaz!"
         ],
         "image": "/src/images/projects/porfolio.png",
-        "techs": ["Astro", "TypeScript", "CSS", "SASS", "Open Props"],
+        "techs": [
+          "Astro",
+          "TypeScript",
+          "CSS",
+          "SASS",
+          "Open Props"
+        ],
         "code": "https://github.com/kunSurenioRBG/porfolio"
       }
     ]
@@ -190,7 +212,13 @@
         "alt": "Advanced Periodontics",
         "title": "Advanced Periodontics",
         "description": "Colaboración con agencia de marketing en Texas para la creación del sitio web de la clínica Advanced Periodontics & Dental Implants.",
-        "techs": ["HTML", "CSS", "JavaScript", "PHP", "WordPress"],
+        "techs": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "PHP",
+          "WordPress"
+        ],
         "repo": "#",
         "repo_label": "Repositorio",
         "commits": "#"
@@ -200,7 +228,13 @@
         "alt": "Portafolio UX Ana Rangel",
         "title": "Portafolio UX Ana Rangel",
         "description": "Desarrollo del portafolio personal para la diseñadora UX Ana Rangel, enfocado en rendimiento y diseño moderno.",
-        "techs": ["Astro", "CSS", "SASS", "TypeScript", "Vercel"],
+        "techs": [
+          "Astro",
+          "CSS",
+          "SASS",
+          "TypeScript",
+          "Vercel"
+        ],
         "repo": "#",
         "repo_label": "Repositorio",
         "commits": "#"

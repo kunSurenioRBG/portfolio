@@ -29,11 +29,17 @@
   "experience": {
     "title": "Work Experience",
     "jobs": {
-      "jobs_title": ["Freelance", "inOne Golf", "Research"],
+      "jobs_title": [
+        "Freelance",
+        "inOne Golf",
+        "Research"
+      ],
       "jobs_description": [
         {
           "title": "Freelance Developer",
-          "time": ["March 2023"],
+          "time": [
+            "March 2023"
+          ],
           "description": [
             "Do you have an idea or a technical challenge?",
             "As a freelance developer, I specialize in transforming complex problems into efficient technological solutions. I combine custom software development with the power of Artificial Intelligence and automated workflow orchestration.",
@@ -56,7 +62,9 @@
         },
         {
           "title": "Data Scientist - Computer Vision",
-          "time": ["December 2025"],
+          "time": [
+            "December 2025"
+          ],
           "description": [
             "Design and implementation in a CRM of an automated workflow using n8n to orchestrate an intelligent product and service chatbot, operating on multiple communication channels such as WhatsApp and other messaging platforms.",
             "Participation in the development of a software platform for the real estate and construction sector, aimed at automating technical and urban validation of residential blueprints through computer vision and artificial intelligence models."
@@ -82,7 +90,10 @@
         },
         {
           "title": "Researcher at University of Málaga - SCBI Picasso",
-          "time": ["Sep 2024", "July 2025"],
+          "time": [
+            "Sep 2024",
+            "July 2025"
+          ],
           "description": "Work carried out at SCBI Picasso, the supercomputing center of the University of Málaga. Design and implementation from scratch of a complete system for neural rendering and synthesis of new views of 3D scenes. Focus on learning 3D scenes from images using optimizable volumetric radiance field models (such as Gaussian Splatting), with the goal of generating new perspectives from arbitrary viewpoints.",
           "techs": [
             "Python",
@@ -103,9 +114,14 @@
       {
         "title": "Startup Due Diligence Automation System - Multi-Agent AI Pipeline",
         "description": "Designed and implemented a multi-agent AI system that automates end-to-end startup due diligence, from raw company data to an investment recommendation. Runs research and analysis agents in parallel, cuts evaluation time from days to minutes, and outputs a structured invest/hold/pass decision with a quantified confidence score.",
-        "image": "/src/images/projects/startup-due-diligence-automation-system.png",
-        "techs": ["Anthropic Claude", "LangGraph", "LangSmith", "Python"],
-        "report_label": "Preview due diligence PDF",
+        "image": "/src/images/projects/ai-workflow-automation.png",
+        "techs": [
+          "Anthropic Claude",
+          "LangGraph",
+          "LangSmith",
+          "Python"
+        ],
+        "report_label": "Preview financial PDF",
         "report_pdf": "/src/images/Due Diligence Report Stripe.pdf",
         "hide_image": true,
         "linkedin": "View project on LinkedIn",
@@ -114,7 +130,7 @@
       {
         "title": "AI Agent Orchestration System",
         "description": "Designed and deployed an end-to-end AI agent orchestration system, fully integrated into the development workflow and directly connected to the CRM delivery pipeline. Powered by Claude (Anthropic) through the Claude Agent SDK, it autonomously coordinates specialized subagents and modular skills, reducing repetitive development effort by approximately 70%.",
-        "image": "/src/images/projects/ai-agent-orchestration-system.png",
+        "image": "/src/images/projects/multi_agente.png",
         "techs": [
           "TypeScript",
           "Claude Agent SDK",
@@ -177,7 +193,13 @@
           "You can use it to create your own and show people what you're capable of!"
         ],
         "image": "/src/images/projects/porfolio.png",
-        "techs": ["Astro", "TypeScript", "CSS", "SASS", "Open Props"],
+        "techs": [
+          "Astro",
+          "TypeScript",
+          "CSS",
+          "SASS",
+          "Open Props"
+        ],
         "code": "https://github.com/kunSurenioRBG/porfolio"
       }
     ]
@@ -190,7 +212,13 @@
         "alt": "Advanced Periodontics",
         "title": "Advanced Periodontics",
         "description": "Collaboration with marketing agency in Texas to create the website for Advanced Periodontics & Dental Implants clinic.",
-        "techs": ["HTML", "CSS", "JavaScript", "PHP", "WordPress"],
+        "techs": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "PHP",
+          "WordPress"
+        ],
         "repo": "#",
         "repo_label": "Repository",
         "commits": "#"
@@ -200,7 +228,13 @@
         "alt": "Ana Rangel UX Portfolio",
         "title": "Ana Rangel UX Portfolio",
         "description": "Development of personal portfolio for UX designer Ana Rangel, focused on performance and modern design.",
-        "techs": ["Astro", "CSS", "SASS", "TypeScript", "Vercel"],
+        "techs": [
+          "Astro",
+          "CSS",
+          "SASS",
+          "TypeScript",
+          "Vercel"
+        ],
         "repo": "#",
         "repo_label": "Repository",
         "commits": "#"
