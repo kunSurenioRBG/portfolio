@@ -184,7 +184,10 @@ if (showImage && !isGif && !images[src])
     <div class="links">
       {
         report_pdf && reportPdfUrl && (
-          <button type="button" data-open-report={reportModalId}>
+          <button
+            type="button"
+            data-open-report={reportModalId}
+            data-report-pdf={reportPdfUrl}>
             <Icon name="link" size={24} />
             {report_label ?? 'Previsualizar reporte'}
           </button>
@@ -349,9 +352,13 @@ if (showImage && !isGif && !images[src])
         padding: 0;
         width: min(96vw, 1200px);
         max-width: 1200px;
-        margin: 2vh auto;
+        margin: 0;
+        position: fixed;
+        inset: 50% auto auto 50%;
+        transform: translate(-50%, -50%);
         background-color: var(--bg-color);
         color: var(--text-color);
+        max-height: 95vh;
 
         &::backdrop {
           background: rgb(0 0 0 / 60%);
@@ -359,6 +366,8 @@ if (showImage && !isGif && !images[src])
 
         & .report-modal-content {
           padding: 16px;
+          max-height: 95vh;
+          overflow: auto;
         }
 
         & .report-modal-header {
@@ -388,6 +397,7 @@ if (showImage && !isGif && !images[src])
           border-radius: 8px;
           background-color: #fff;
           height: min(88vh, 1400px);
+          width: 100%;
         }
       }
     }
@@ -395,27 +405,77 @@ if (showImage && !isGif && !images[src])
 </style>
 
 <script>
-  document.addEventListener('click', (event) => {
-    const target = event.target as HTMLElement | null
-    if (!target) return
+  const REPORT_MODAL_BOUND_KEY = '__reportModalHandlersBound'
 
-    const openBtn = target.closest('[data-open-report]') as HTMLElement | null
-    if (openBtn) {
-      const modalId = openBtn.getAttribute('data-open-report')
-      if (!modalId) return
-      const modal = document.getElementById(modalId)
-      if (modal instanceof HTMLDialogElement) {
-        modal.showModal()
-      }
-      return
+  if (!(window as any)[REPORT_MODAL_BOUND_KEY]) {
+    const lockScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset || 0
+      document.body.dataset.modalScrollY = String(scrollY)
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.left = '0'
+      document.body.style.right = '0'
+      document.body.style.width = '100%'
     }
 
-    const closeBtn = target.closest('[data-close-report]') as HTMLElement | null
-    if (closeBtn) {
-      const modal = closeBtn.closest('dialog')
-      if (modal instanceof HTMLDialogElement) {
-        modal.close()
-      }
+    const unlockScroll = () => {
+      const savedY = Number(document.body.dataset.modalScrollY || '0')
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.left = ''
+      document.body.style.right = ''
+      document.body.style.width = ''
+      delete document.body.dataset.modalScrollY
+      window.scrollTo(0, savedY)
     }
-  })
+
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement | null
+      if (!target) return
+
+      const openBtn = target.closest('[data-open-report]') as HTMLElement | null
+      if (openBtn) {
+        const modalId = openBtn.getAttribute('data-open-report')
+        if (!modalId) return
+
+        const pdfUrl = openBtn.getAttribute('data-report-pdf')
+        const isMobile = window.matchMedia('(max-width: 900px)').matches
+        if (isMobile && pdfUrl) {
+          window.open(pdfUrl, '_blank', 'noopener,noreferrer')
+          return
+        }
+
+        const modal = document.getElementById(modalId)
+        if (modal instanceof HTMLDialogElement) {
+          lockScroll()
+          modal.showModal()
+          const savedY = Number(document.body.dataset.modalScrollY || '0')
+          requestAnimationFrame(() => window.scrollTo(0, savedY))
+        }
+        return
+      }
+
+      const closeBtn = target.closest('[data-close-report]') as HTMLElement | null
+      if (closeBtn) {
+        const modal = closeBtn.closest('dialog')
+        if (modal instanceof HTMLDialogElement) {
+          modal.close()
+          unlockScroll()
+        }
+      }
+    })
+
+    document.addEventListener(
+      'close',
+      (event) => {
+        const target = event.target
+        if (target instanceof HTMLDialogElement && target.classList.contains('report-modal')) {
+          unlockScroll()
+        }
+      },
+      true
+    )
+
+    ;(window as any)[REPORT_MODAL_BOUND_KEY] = true
+  }
 </script>
